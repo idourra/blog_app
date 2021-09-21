@@ -10,6 +10,11 @@ def handle_validation_exception(error):
     response = jsonify(error.errors())
     response.status_code = 400
     return response
+    
+@app.route("/")
+def home():
+    return "Hello, Flask!"
+
 
 @app.route('/create-article/', methods=['POST'])
 def create_article():
