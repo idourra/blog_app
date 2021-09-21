@@ -1,4 +1,9 @@
 {
     "editor.fontSize": 18,
-    "python.condaPath": "/home/urra/opt/miniconda3"
+    "python.condaPath": "/home/urra/opt/miniconda3",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
