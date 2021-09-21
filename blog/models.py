@@ -52,6 +52,27 @@ class Article(BaseModel):
 
         return article
 
+
+    @classmethod
+    def _get_by_attribute(cls, sql_query: str, sql_query_values: tuple):
+        con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
+        con.row_factory = sqlite3.Row
+
+        cur = con.cursor()
+        cur.execute(sql_query, sql_query_values)
+
+        record = cur.fetchone()
+
+        if record is None:
+            raise NotFound
+
+        article = cls(**record)  # Row can be unpacked as dict
+        con.close()
+
+        return article
+
+
+
     @classmethod
     def list(cls) -> List['Article']:
         con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))

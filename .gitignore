@@ -1,3 +1,4 @@
 tests/__pycache__/
 blog/__pycache__/
 tests/test_article/__pycache__/
+database.db
